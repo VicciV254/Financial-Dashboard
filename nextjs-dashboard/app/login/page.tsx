@@ -1,5 +1,6 @@
 import LoginForm from '@/app/ui/login-form';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'Login',
@@ -21,7 +22,9 @@ export default function LoginPage() {
             </svg>
           </div>
         </div>
-        <LoginForm />
+        <Suspense fallback={<div>Loading...</div>}>
+          <LoginForm />
+        </Suspense>
       </div>
     </main>
   );
